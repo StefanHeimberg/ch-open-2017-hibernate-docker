@@ -1,0 +1,17 @@
+version: '2'
+
+volumes:
+  aht_db-pgdata:
+
+services:
+  aht_db:
+    build: aht_db
+    volumes: 
+      - aht_db-pgdata:/var/lib/postgresql
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_PASSWORD: "postgres"
+      POSTGRES_USER: "postgres"
+      PGDATA: "/var/lib/postgresql/data"
+      POSTGRES_DB: "AHT"
